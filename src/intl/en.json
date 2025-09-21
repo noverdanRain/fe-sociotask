@@ -1,0 +1,13 @@
+{
+    "common": {
+        "connect-wallet": "Connect Wallet",
+        "metadata": {
+            "title": "Socio Task | Earn Rewards from Your Social Activities",
+            "description": "Join Socio Task to monetize your social media engagement and earn rewards effortlessly."
+        }
+    },
+    "homepage": {
+        "title": "Welcome to Our Application",
+        "description": "This is the best place to manage your assets."
+    }
+}
