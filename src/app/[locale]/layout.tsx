@@ -8,6 +8,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import HeaderNav from "@/components/HeaderNav";
 
 type Props = {
 	children: React.ReactNode;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	if (!hasLocale(routing.locales, locale)) {
 		return {};
 	}
-	const t = await getTranslations({locale, namespace: 'common.metadata'});
+	const t = await getTranslations({ locale, namespace: 'common.metadata' });
 	return {
 		title: t("title"),
 		description: t("description")
@@ -55,7 +56,10 @@ export default async function RootLayout({ children, params }: Props) {
 				<ChakraProviderWrapper>
 					<ReownProvider cookies={cookies}>
 						<NextIntlClientProvider >
-							{children}
+							<HeaderNav />
+							<main>
+								{children}
+							</main>
 						</NextIntlClientProvider>
 					</ReownProvider>
 				</ChakraProviderWrapper>
