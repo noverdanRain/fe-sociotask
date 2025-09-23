@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Outfit } from "next/font/google";
 import ReownProvider from "../provider/reown-provider";
 import { headers } from "next/headers";
 import "../globals.css";
@@ -15,8 +15,8 @@ type Props = {
 	params: Promise<{ locale: string }>;
 };
 
-const inter = Inter({
-	variable: "--font-inter",
+const outfit = Outfit({
+	variable: "--font-outfit",
 	subsets: ["latin"],
 });
 
@@ -52,7 +52,7 @@ export default async function RootLayout({ children, params }: Props) {
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className={`${inter.variable} ${geistMono.variable}`}>
+			<body className={`${outfit.variable} ${geistMono.variable}`}>
 				<ChakraProviderWrapper>
 					<ReownProvider cookies={cookies}>
 						<NextIntlClientProvider >
