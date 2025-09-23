@@ -1,11 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Button, Flex, IconButton, Image, Show } from "@chakra-ui/react";
+import { AnimatePresence } from "motion/react"
+import {
+    Button,
+    ButtonProps,
+    Flex,
+    IconButton,
+    Image,
+} from "@chakra-ui/react";
 import NextImage from "next/image";
 import ChooseLang from "./ChooseLang";
 import { useTranslations } from "next-intl";
 import { LuMenu, LuX } from "react-icons/lu";
+import { MotionBox, MotionFlex } from "@/lib/motion-chakra";
+
+const btnLogInStaticProps: ButtonProps = {
+    colorPalette: "pink",
+    rounded: "xl",
+    variant: "solid",
+    _hover: { bg: "pink.600" },
+};
+
+const btnSignUpStaticProps: ButtonProps = {
+    colorPalette: "pink",
+    rounded: "xl",
+    variant: "surface",
+    bg: "transparent",
+    color: "pink.solid",
+    _hover: { bg: "pink.50" },
+};
 
 export default function HeaderNav() {
     const intl = useTranslations("common");
@@ -17,7 +41,7 @@ export default function HeaderNav() {
     };
 
     return (
-        <Flex
+        <MotionFlex
             as={"header"}
             flexWrap={"wrap"}
             alignItems={"center"}
@@ -36,16 +60,19 @@ export default function HeaderNav() {
             zIndex={"sticky"}
             px={"6"}
             py={"3"}
-            // border={"1px solid"}
             borderColor={"gray.200"}
             shadow={"sm"}
-            transition={"all 0.3s ease"}
+            layout="size"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, height: isMenuOpen ? "auto" : 0 }}
+            transition={{ duration: 0.2 }}
         >
             <Image
                 asChild
                 width={"115px"}
                 height={"auto"}
                 objectFit={"contain"}
+                alt="Logo with text"
             >
                 <NextImage
                     src={"/logo/logo-with-text-black.svg"}
@@ -54,18 +81,14 @@ export default function HeaderNav() {
                     height={0}
                 />
             </Image>
-            <Flex display={{ base: "none", sm: "flex" }} alignItems={"center"}>
+            <Flex
+                display={{ base: "none", sm: "flex" }}
+                gap={2}
+                alignItems={"center"}
+            >
                 <ChooseLang />
-                <Button
-                    colorPalette={"pink"}
-                    rounded={"xl"}
-                    variant={"surface"}
-                    bg={"transparent"}
-                    color={"pink.solid"}
-                    _hover={{ bg: "pink.50" }}
-                >
-                    {intl("connect-wallet")}
-                </Button>
+                <Button {...btnLogInStaticProps}>{intl("sign-in")}</Button>
+                <Button {...btnSignUpStaticProps}>{intl("sign-up")}</Button>
             </Flex>
             <IconButton
                 p={0}
@@ -78,24 +101,38 @@ export default function HeaderNav() {
                 {isMenuOpen ? <LuX /> : <LuMenu />}
             </IconButton>
 
-            <Show when={isMenuOpen}>
-                <Box display={{ base: "flex", sm: "none" }} mt={"4"} width={"100%"}>
-                    <Flex width={"100%"} flexDir={"column"} alignItems={"center"} gap={2}>
-                        <ChooseLang />
-                        <Button
+            <AnimatePresence>
+                {
+                    isMenuOpen && (
+                        <MotionBox
+                            display={{ base: "flex", sm: "none" }}
+                            mt={"8"}
                             width={"100%"}
-                            colorPalette={"pink"}
-                            rounded={"xl"}
-                            variant={"surface"}
-                            bg={"transparent"}
-                            color={"pink.solid"}
-                            _hover={{ bg: "pink.50" }}
+                            key="header-nav-menu"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                            transition={{ duration: 0.25, delay: 0.2 }}
                         >
-                            {intl("connect-wallet")}
-                        </Button>
-                    </Flex>
-                </Box>
-            </Show>
-        </Flex>
+                            <Flex
+                                width={"100%"}
+                                flexDir={"column"}
+                                alignItems={"center"}
+                                gap={2}
+                            >
+                                <ChooseLang mb={1} />
+                                <Button width={"100%"} {...btnLogInStaticProps}>
+                                    {intl("sign-in")}
+                                </Button>
+                                <Button width={"100%"} {...btnSignUpStaticProps}>
+                                    {intl("sign-up")}
+                                </Button>
+                            </Flex>
+                        </MotionBox>
+                    )
+                }
+            </AnimatePresence>
+
+        </MotionFlex>
     );
 }

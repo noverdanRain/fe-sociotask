@@ -12,6 +12,7 @@ export default function Home() {
       <Flex
          as={"section"}
          bgImage={`url(${heroBg.src})`}
+         bgSize={"cover"}
          bgRepeat={"no-repeat"}
          minH={"100dvh"}
          gap={4}
