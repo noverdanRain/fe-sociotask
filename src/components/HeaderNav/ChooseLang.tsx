@@ -1,12 +1,12 @@
 "use client";
 
-import { Flex, Menu, Portal, Span } from "@chakra-ui/react";
+import { Flex, FlexProps, Menu, Portal, Span } from "@chakra-ui/react";
 import { useLocale, } from "next-intl";
 import { useState } from "react";
 import { BiGlobe } from "react-icons/bi";
 import { useRouter } from '@/i18n/navigation';
 
-export default function ChooseLang() {
+export default function ChooseLang(props: FlexProps) {
    const router = useRouter();
    const locale = useLocale();
 
@@ -28,6 +28,7 @@ export default function ChooseLang() {
                _hover={{ color: "gray.700" }}
                p={2}
                focusRing={"none"}
+               {...props}
             >
                <Span fontSize={"sm"} fontWeight={"medium"}>
                   {lang.toUpperCase()}
