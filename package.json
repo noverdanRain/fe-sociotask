@@ -26,6 +26,7 @@
     "wagmi": "^2.16.9"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "3.27.0",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
