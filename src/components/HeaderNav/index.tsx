@@ -13,13 +13,12 @@ import NextImage from "next/image";
 import ChooseLang from "./ChooseLang";
 import { useTranslations } from "next-intl";
 import { LuMenu, LuX } from "react-icons/lu";
-import { MotionBox, MotionFlex } from "@/lib/motion-chakra";
+import { MotionBox, MotionFlex } from "../ui/ChakraMotion";
 
 const btnLogInStaticProps: ButtonProps = {
     colorPalette: "pink",
     rounded: "xl",
     variant: "solid",
-    _hover: { bg: "pink.600" },
 };
 
 const btnSignUpStaticProps: ButtonProps = {
@@ -51,21 +50,23 @@ export default function HeaderNav() {
             width={"calc(100% - 2rem)"}
             minHeight={"16"}
             rounded={"xl"}
-            bg={"whiteAlpha.800"}
-            backdropFilter="blur(3px)"
+            bg={"white/80"}
+            backdropFilter="blur(6px)"
             position={"fixed"}
             top={"5"}
             left={"50%"}
             transform={"translateX(-50%)"}
-            zIndex={"sticky"}
+            zIndex={"docked"}
             px={"6"}
             py={"3"}
             borderColor={"gray.200"}
             shadow={"sm"}
             layout="size"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, height: isMenuOpen ? "auto" : 0 }}
-            transition={{ duration: 0.2 }}
+            animate={{ height: isMenuOpen ? "auto" : 0 }}
+            transition={{
+                default: { duration: 0.2},
+                height: { duration: 0.2, ease: "circInOut" },
+            }}
         >
             <Image
                 asChild
