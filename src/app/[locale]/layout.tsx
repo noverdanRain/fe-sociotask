@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Outfit } from "next/font/google";
 import ReownProvider from "../provider/reown-provider";
 import { headers } from "next/headers";
 import "../globals.css";
@@ -14,16 +13,6 @@ type Props = {
 	children: React.ReactNode;
 	params: Promise<{ locale: string }>;
 };
-
-const outfit = Outfit({
-	variable: "--font-outfit",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const { locale } = await params;
@@ -52,7 +41,7 @@ export default async function RootLayout({ children, params }: Props) {
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className={`${outfit.variable} ${geistMono.variable}`}>
+			<body>
 				<ChakraProviderWrapper>
 					<ReownProvider cookies={cookies}>
 						<NextIntlClientProvider >
