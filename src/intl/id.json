@@ -10,7 +10,22 @@
         }
     },
     "homepage": {
-        "title": "Selamat Datang di Aplikasi Kami",
-        "description": "Ini adalah tempat terbaik untuk mengelola aset Anda."
+        "hero": {
+            "announce": {
+                "info": "Info",
+                "text": "Saat ini hanya dapat menangani koin di jaringan Avalanche"
+            },
+            "title": {
+                "earn": "Dapatkan",
+                "rewards": "hadiah",
+                "for-social-media-task": "dari Media Sosial Anda"
+            },
+            "desc": "Lakukan berbagai aksi di media sosial, mulai dari follow, share, hingga komentar, dan dapatkan hadiah kripto.",
+            "cta": {
+                "browse-tasks": "Telusuri Task",
+                "join-us": "Bergabung"
+            },
+            "coins-can-be-rewarded": "koin yang dapat diklaim"
+        }
     }
 }

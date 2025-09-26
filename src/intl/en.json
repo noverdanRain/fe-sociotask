@@ -10,7 +10,22 @@
         }
     },
     "homepage": {
-        "title": "Welcome to Our Application",
-        "description": "This is the best place to manage your assets."
+        "hero": {
+            "announce":{
+                "info": "Info",
+                "text": "For now we can only handle coins on the Avalanche network"
+            },
+            "title": {
+                "earn": "Earn",
+                "rewards": "rewards",
+                "for-social-media-task": "for Social Media Tasks"
+            },
+            "desc": "Complete social media actions like follow, share, and comments or something else to earn cryptocurrency rewards.",
+            "cta": {
+                "browse-tasks": "Browse Tasks",
+                "join-us": "Join Us"
+            },
+            "coins-can-be-rewarded": "coins can be rewarded"
+        }
     }
 }
