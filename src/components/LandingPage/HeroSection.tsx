@@ -28,6 +28,8 @@ export default async function Hero() {
         <Box
             as={"section"}
             flexFlow={"column"}
+            position={"relative"}
+            // bg={"pink.500/10"}
         >
             <ImageWrapper
                 src={HeroBg.src}
