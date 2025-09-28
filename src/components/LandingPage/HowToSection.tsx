@@ -1,12 +1,9 @@
-"use client";
-
 import { Box, Flex, type FlexProps, Text } from "@chakra-ui/react";
 import { MotionHeading } from "../ui/ChakraMotion";
 
 import StartTaskImg from "@/assets/landing/how-to/start-task.png";
 import CompleteTaskImg from "@/assets/landing/how-to/complete-task.png";
 import ClaimRewardImg from "@/assets/landing/how-to/claim-rewards.png";
-import BackLineImg from "@/assets/landing/how-to/back-line.png";
 import BackLineSvg from "@/assets/landing/how-to/back-line.svg";
 import ImageWrapper from "../ui/image";
 
@@ -35,6 +32,7 @@ export default function HowToSection() {
             flexDir={"column"}
             alignItems={"center"}
             as="section"
+            mt={"6"}
             p={"6"}
             bgImage={`url(${BackLineSvg.src})`}
             bgRepeat={"no-repeat"}
@@ -45,19 +43,20 @@ export default function HowToSection() {
             <Box
                 zIndex={-2}
                 position="absolute"
-                bottom={-200}
+                bottom={-172}
                 w={"full"}
-                h={"560px"}
+                h={"425px"}
                 bgGradient="to-b"
                 gradientFrom="#ffffff/0"
-                gradientVia="#D9FAFF"
+                gradientVia="#D9FAFF/85"
                 gradientTo="#ffffff/0"
             />
 
-            <MotionHeading size={"lg"} color={"pink.500"} textAlign={"center"}>
+            <MotionHeading as={"h5"} size={"lg"} color={"pink.500"} textAlign={"center"}>
                 ~ How To ~
             </MotionHeading>
             <MotionHeading
+                as={"h3"}
                 size={"4xl"}
                 textAlign={"center"}
                 maxW={"864px"}
@@ -75,8 +74,9 @@ export default function HowToSection() {
                         left={"-9px"}
                         src={StartTaskImg.src}
                         alt="start task illustration"
+                        width={"290px"}
                         nextImageProps={{
-                            width: 290,
+                            width: 300,
                             height: 0,
                         }}
                     />
@@ -94,8 +94,9 @@ export default function HowToSection() {
                         left={"10px"}
                         src={CompleteTaskImg.src}
                         alt="complete task illustration"
+                        width={"284px"}
                         nextImageProps={{
-                            width: 284,
+                            width: 300,
                             height: 0,
                         }}
                     />
@@ -114,8 +115,9 @@ export default function HowToSection() {
                         left={"42px"}
                         src={ClaimRewardImg.src}
                         alt="claim reward illustration"
+                        width={"224px"}
                         nextImageProps={{
-                            width: 224,
+                            width: 300,
                             height: 0,
                         }}
                     />
