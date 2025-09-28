@@ -1,9 +1,9 @@
-import Hero from "@/components/LandingPage/Hero";
+import HeroSection from "@/components/LandingPage/HeroSection";
 
 export default function Home() {
    return (
       <>
-         <Hero />
+         <HeroSection />
          {/* <MotionFlex
             animate={{
                y: [0, -20, 0], // naik -20px lalu turun lagi
