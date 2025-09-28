@@ -56,7 +56,8 @@ function CompletedUser({ completed, max }: { completed: number; max: number }) {
         </Flex>
     );
 }
-function EndedOn({ date }: { date: string }) {
+function EndedOn({ date }: { date?: string }) {
+    console.log(date);
     return (
         <Flex
             w={"fit-content"}
