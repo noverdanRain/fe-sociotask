@@ -29,6 +29,9 @@ export default function OngoingTaskSection() {
                 <TaskCard />
                 <TaskCard />
                 <TaskCard />
+                <TaskCard />
+                <TaskCard />
+                <TaskCard />
             </Grid>
         </Flex>
     )
