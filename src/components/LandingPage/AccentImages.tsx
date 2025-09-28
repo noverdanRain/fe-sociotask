@@ -69,7 +69,7 @@ export default function AccentImages() {
                     y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
                     x: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
                     scale: { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 },
-                    opacity: { duration: 1, delay: 1.5 },
+                    opacity: { duration: 1, delay: 1.7 },
                 }}
             />
             <MotionImage
@@ -86,7 +86,7 @@ export default function AccentImages() {
                     y: { duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
                     x: { duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
                     scale: { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-                    opacity: { duration: 1, delay: 1.5 },
+                    opacity: { duration: 1, delay: 1.9 },
                 }}
             />
             <MotionImage
@@ -103,7 +103,7 @@ export default function AccentImages() {
                     y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: -1 },
                     x: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: -1 },
                     scale: { duration: 12, repeat: Infinity, ease: "easeInOut", delay: -1 },
-                    opacity: { duration: 1, delay: 1.5 },
+                    opacity: { duration: 1, delay: 1.7 },
                 }}
             />
             <MotionImage
@@ -120,7 +120,7 @@ export default function AccentImages() {
                     y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: -0.5 },
                     x: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: -0.5 },
                     scale: { duration: 12, repeat: Infinity, ease: "easeInOut", delay: -0.5 },
-                    opacity: { duration: 1, delay: 1.5 },
+                    opacity: { duration: 1, delay: 1.9 },
                 }}
             />
             <MotionImage
@@ -137,7 +137,7 @@ export default function AccentImages() {
                     y: { duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 0 },
                     x: { duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 0 },
                     scale: { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 0 },
-                    opacity: { duration: 1, delay: 1.5 },
+                    opacity: { duration: 1, delay: 1.7 },
                 }}
             />
         </Box>
