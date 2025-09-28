@@ -20,7 +20,7 @@ const staticMotionProps: MotionProps = {
     }
 }
 
-export default function AccentImages() {
+export default function HeroAccentImages() {
     return (
         <Box
             display={{ base: "none", md: "block" }}

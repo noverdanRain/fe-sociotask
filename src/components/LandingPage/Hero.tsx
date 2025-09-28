@@ -9,7 +9,7 @@ import Eth from "@/assets/coin-icon/ic-eth.png"
 import Usdt from "@/assets/coin-icon/ic-usdt.png"
 import Usdc from "@/assets/coin-icon/ic-usdc.png"
 import ImageWrapper from "../ui/image";
-import AccentImages from "./AccentImages";
+import AccentImages from "./HeroAccentImages";
 import { MotionFlex, MotionHeading, MotionText } from "../ui/ChakraMotion";
 import { MotionProps } from "motion/react";
 
