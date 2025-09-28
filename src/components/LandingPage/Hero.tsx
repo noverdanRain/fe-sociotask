@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup, Box, Button, Flex, Heading, Span, Text } from "@chakra-ui/react";
+import { Avatar, AvatarGroup, Box, Button, Flex, Span, Text } from "@chakra-ui/react";
 import HeroBg from "@/assets/landing/hero-bg.png";
 import HighlightScribbles from "@/assets/landing/highlight-scribbles.svg";
 import { getTranslations } from "next-intl/server";
@@ -47,17 +47,20 @@ export default async function Hero() {
                     sm: "center",
                 }}
                 maxW={"1280px"}
-                minH={"100dvh"}
+                // minH={"100dvh"}
                 w={"100%"}
+                h={"fit-content"}
                 pt={{
-                    base: "120px",
-                    md: "80px",
+                    base: "124px",
+                    // md: "80px",
                 }}
+                pb={"56px"}
                 px={"32px"}
                 mx={"auto"}
                 position={"relative"}
             >
                 <AccentImages />
+
                 {/* START ANNOUNCEMENT (INFO) */}
                 <MotionFlex
                     gap={"12px"}
