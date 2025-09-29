@@ -45,13 +45,17 @@ export default async function Hero() {
                 flexDir={"column"}
                 alignItems={"center"}
                 justifyContent={{
-                    base: "start",
-                    sm: "center",
+                    base: "center",
+                    // sm: "center",
                 }}
                 maxW={"1280px"}
-                // minH={"100dvh"}
+                minH={{base:"100dvh", md:"fit", lg:"100dvh", "2xl":"fit"}}
                 w={"100%"}
-                h={"fit-content"}
+                // h={{
+                //     base: "100dvh",
+                //     // lg: "100dvh",
+                //     "2xl": "fit"
+                // }}
                 pt={{
                     base: "124px",
                     // md: "80px",
@@ -60,6 +64,7 @@ export default async function Hero() {
                 px={"32px"}
                 mx={"auto"}
                 position={"relative"}
+                // bg={"pink.200/50"}
             >
                 <AccentImages />
 

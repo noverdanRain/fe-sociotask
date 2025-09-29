@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Flex, type FlexProps, Text } from "@chakra-ui/react";
 import { MotionHeading } from "../ui/ChakraMotion";
 
@@ -34,25 +36,34 @@ export default function HowToSection() {
             as="section"
             mt={"6"}
             p={"6"}
-            bgImage={`url(${BackLineSvg.src})`}
+            bgImage={{ base: "none", lg: `url(${BackLineSvg.src})` }}
             bgRepeat={"no-repeat"}
             backgroundPositionX={"center"}
             backgroundPositionY={"350px"}
             bgSize={"1780px"}
+            overflow={{ base: "hidden", md: "visible" }}
+            h={"fit"}
+        // bg={"pink.100"}
         >
             <Box
                 zIndex={-2}
                 position="absolute"
-                bottom={-172}
-                w={"full"}
-                h={"425px"}
-                bgGradient="to-b"
+                bottom={{ base: "-50px", sm: -172 }}
+                w={{ base: "450px", sm: "full" }}
+                h={{ base: "calc(100% + 100px)", sm: "425px" }}
+                bgGradient={{ base: "to-r", sm: "to-b" }}
                 gradientFrom="#ffffff/0"
                 gradientVia="#D9FAFF/85"
                 gradientTo="#ffffff/0"
+                rotate={{ base: "-32", sm: "0" }}
             />
 
-            <MotionHeading as={"h5"} size={"lg"} color={"pink.500"} textAlign={"center"}>
+            <MotionHeading
+                as={"h5"}
+                size={"lg"}
+                color={"pink.500"}
+                textAlign={"center"}
+            >
                 ~ How To ~
             </MotionHeading>
             <MotionHeading
@@ -65,8 +76,18 @@ export default function HowToSection() {
                 Claim and earn cryptocurrency coins by completing tasks and
                 getting confirmed
             </MotionHeading>
-            <Flex gap={"12"} alignItems={"start"} mt={"12"}>
-                <Flex rotate={"-6"} mt={"5"} {...staticCardProps}>
+            <Flex
+                flexWrap={{ base: "wrap", lg: "nowrap" }}
+                gap={{ base: "10", md: "8", lg: "12" }}
+                justifyContent={"center"}
+                alignItems={"start"}
+                mt={"12"}
+            >
+                <Flex
+                    rotate={{ base: "-4", md: "-4", lg: "-6" }}
+                    mt={{ base: "0", lg: "5" }}
+                    {...staticCardProps}
+                >
                     <ImageWrapper
                         rotate={"6"}
                         position={"absolute"}
@@ -87,7 +108,7 @@ export default function HowToSection() {
                         </Text>
                     </Box>
                 </Flex>
-                <Flex rotate={"0"} {...staticCardProps}>
+                <Flex rotate={{ base: "4", md: "4", lg: "0" }} {...staticCardProps}>
                     <ImageWrapper
                         position={"absolute"}
                         top={"20px"}
@@ -107,7 +128,11 @@ export default function HowToSection() {
                         </Text>
                     </Box>
                 </Flex>
-                <Flex rotate={"6"} mt={"5"} {...staticCardProps}>
+                <Flex
+                    rotate={{ base: "-4", md: "0", lg: "6" }}
+                    mt={{ base: "0", lg: "5" }}
+                    {...staticCardProps}
+                >
                     <ImageWrapper
                         rotate={"-5"}
                         position={"absolute"}

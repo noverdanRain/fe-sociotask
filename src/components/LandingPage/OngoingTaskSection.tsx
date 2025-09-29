@@ -11,6 +11,7 @@ export default function OngoingTaskSection() {
             alignItems={"center"}
             mt={"10"}
             p={"6"}
+            overflow={"hidden"}
         >
             <MotionHeading as={"h5"} size={"lg"} color={"pink.500"} textAlign={"center"}>
                 ~ Ongoing Tasks ~
