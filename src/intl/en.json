@@ -7,7 +7,9 @@
         "metadata": {
             "title": "Socio Task | Earn Rewards from Your Social Activities",
             "description": "Join Socio Task to monetize your social media engagement and earn rewards effortlessly."
-        }
+        },
+        "days-left": "{days, plural, =0 {no days left} =1 {one day left} other {# days left}}",
+        "hours-left": "{days, plural, =0 {no hours left} =1 {one hour left} other {# hours left}}"
     },
     "homepage": {
         "hero": {
@@ -26,6 +28,13 @@
                 "join-us": "Join Us"
             },
             "coins-can-be-rewarded": "coins can be rewarded"
+        },
+        "how-to":{
+            "text": "How To",
+            "title": "Claim and earn cryptocurrency coins by completing tasks and getting confirmed",
+            "step-1": "Follow and complete the available tasks available in",
+            "step-2": "Complete the tasks according to the provisions",
+            "step-3": "Claim the cryptocurrency coins offered"
         }
     }
 }

@@ -1,15 +1,21 @@
-import { Avatar, AvatarGroup, Flex, Text } from "@chakra-ui/react";
-import { LuClock, LuUserRound } from "react-icons/lu";
-import IgCircleImg from "@/assets/social circle/ig-circle.png";
-// import ThreadCircleImg from "@/assets/social circle/thread-circle.png";
-// import TtCircleImg from "@/assets/social circle/tt-circle.png";
-import XCircleImg from "@/assets/social circle/x-circle.png";
-import FbCircleImg from "@/assets/social circle/fb-circle.png";
-import YtCircleImg from "@/assets/social circle/yt-circle.png";
+import { Avatar, Button, Flex, Text } from "@chakra-ui/react";
+import { LuBadgeCheck, LuUserRound, LuZap } from "react-icons/lu";
+import EndedOn from "./EndedOn";
+import SocialsAvatars from "./SocialsAvatar";
+import UsdtImg from "@/assets/coin-icon/ic-usdt.svg";
 
 export default function TaskCard() {
     return (
-        <Flex p={"2"}>
+        <Flex
+            bg={"transparent"}
+            flexDir={"column"}
+            p={"2"}
+            pb={"3"}
+            rounded={"3xl"}
+            cursor={"default"}
+            _hover={{ bg: "gray.100", scale: 1.02 }}
+            transition="all 0.2s ease-in-out"
+        >
             <Flex
                 flexDir={"column"}
                 w={"325px"}
@@ -22,17 +28,97 @@ export default function TaskCard() {
                 gradientVia={"#E8FDFDcc 71%"}
                 gradientTo={"#DFF6FDcc 100%"}
             >
-                <Flex
-                    justifyContent={"space-between"}
-                >
+                <Flex justifyContent={"space-between"}>
                     <Flex gap={"1.5"}>
-                        <CompletedUser completed={10} max={88} />
-                        <EndedOn date={"2024-12-31"} />
+                        <CompletedUser completed={24} max={100} />
+                        <EndedOn date={"2025-10-01T02:00:00.000Z"} />
                     </Flex>
-                    <SocialAvatars />
+                    <SocialsAvatars
+                        socials={[
+                            "instagram",
+                            "facebook",
+                            "x",
+                            "youtube",
+                            "threads",
+                            "tiktok",
+                        ]}
+                    />
+                </Flex>
+
+                <Flex mt={"4"} alignItems={"center"} gap={"1"}>
+                    <Text>Sociotask</Text>
+                    <LuBadgeCheck size={14} color="#2563EB" />
+                </Flex>
+
+                <Text mt={"1"} as={"h6"} fontSize={"xl"} fontWeight={"medium"}>
+                    The Socio Product Launch Campaign
+                </Text>
+
+                <Flex gap={"2"} flexWrap={"wrap"} fontSize={"xs"} mt={"auto"}>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Follow</Text>
+                    </Flex>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Like</Text>
+                    </Flex>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Comment</Text>
+                    </Flex>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Repost</Text>
+                    </Flex>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Subscribe</Text>
+                    </Flex>
                 </Flex>
             </Flex>
-            <Flex></Flex>
+            <Flex mt={"4"} justifyContent={"space-between"}>
+                <Flex ml={"1"} gap={"2"} alignItems={"center"}>
+                    <Avatar.Root>
+                        <Avatar.Fallback name="USDT" />
+                        <Avatar.Image src={UsdtImg.src} />
+                    </Avatar.Root>
+                    <Flex flexDir={"column"}>
+                        <Text fontWeight={"medium"}>1.13 USDT</Text>
+                        <Text fontSize={"xs"} color={"gray.500"}>
+                            Rewards
+                        </Text>
+                    </Flex>
+                </Flex>
+                <Button w={"fit"} colorPalette={"pink"}>
+                    Start Task <LuZap />
+                </Button>
+            </Flex>
         </Flex>
     );
 }
@@ -52,53 +138,9 @@ function CompletedUser({ completed, max }: { completed: number; max: number }) {
             fontWeight={"medium"}
         >
             <LuUserRound strokeWidth={2.5} />
-            <Text>{completed}/{max}</Text>
+            <Text>
+                {completed}/{max}
+            </Text>
         </Flex>
     );
-}
-function EndedOn({ date }: { date?: string }) {
-    console.log(date);
-    return (
-        <Flex
-            w={"fit-content"}
-            h={"fit-content"}
-            alignItems={"center"}
-            gap={"4px"}
-            py={"4px"}
-            px={"8px"}
-            rounded={"full"}
-            fontSize={"11px"}
-            bg={"white/75"}
-            fontWeight={"medium"}
-        >
-            <LuClock strokeWidth={2.5} />
-            <Text>21 Days left</Text>
-        </Flex>
-    );
-}
-
-function SocialAvatars() {
-    return (
-        <AvatarGroup gap="0" spaceX="-2.5" size="xs">
-            <Avatar.Root w={"28px"} h={"28px"} border="1.5px solid white">
-                <Avatar.Fallback name="Avalanche" />
-                <Avatar.Image src={IgCircleImg.src} />
-            </Avatar.Root>
-            <Avatar.Root w={"28px"} h={"28px"} border="1.5px solid white">
-                <Avatar.Fallback name="Ethereum" />
-                <Avatar.Image src={FbCircleImg.src} />
-            </Avatar.Root>
-            <Avatar.Root w={"28px"} h={"28px"} border="1.5px solid white">
-                <Avatar.Fallback name="Tether" />
-                <Avatar.Image src={XCircleImg.src} />
-            </Avatar.Root>
-            <Avatar.Root w={"28px"} h={"28px"} border="1.5px solid white">
-                <Avatar.Fallback name="USD Coin" />
-                <Avatar.Image src={YtCircleImg.src} />
-            </Avatar.Root>
-            <Avatar.Root w={"28px"} h={"28px"} border="1.5px solid white" variant="subtle">
-                <Avatar.Fallback fontSize={"10px"}>+3</Avatar.Fallback>
-            </Avatar.Root>
-        </AvatarGroup>
-    )
 }

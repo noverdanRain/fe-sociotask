@@ -11,23 +11,23 @@ const MImage = motion(ImageWrapper);
 const MHeading = motion(Heading);
 const MText = motion(Text);
 
-type MotionFlexProps = {
-    children: React.ReactNode;
+export type MotionFlexProps = {
+    children?: React.ReactNode;
 } & React.ComponentProps<typeof MFlex>
 
-type MotionBoxProps = {
-    children: React.ReactNode;
+export type MotionBoxProps = {
+    children?: React.ReactNode;
 } & React.ComponentProps<typeof MBox>
 
-type MotionButtonProps = {
-    children: React.ReactNode;
+export type MotionButtonProps = {
+    children?: React.ReactNode;
 } & React.ComponentProps<typeof MButton>
-type MotionImageProps =  React.ComponentProps<typeof MImage>
-type MotionHeadingProps = {
-    children: React.ReactNode;
+export type MotionImageProps =  React.ComponentProps<typeof MImage>
+export type MotionHeadingProps = {
+    children?: React.ReactNode;
 } & React.ComponentProps<typeof MHeading>
-type MotionTextProps = {
-    children: React.ReactNode;
+export type MotionTextProps = {
+    children?: React.ReactNode;
 } & React.ComponentProps<typeof MText>
 
 export function MotionBox(props: MotionBoxProps) {

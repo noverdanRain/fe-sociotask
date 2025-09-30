@@ -27,7 +27,7 @@ const tokens = defineTokens({
 
 const buttonRecipes = defineRecipe({
     base: {
-        borderRadius: "lg",
+        borderRadius: "xl",
     },
 });
 

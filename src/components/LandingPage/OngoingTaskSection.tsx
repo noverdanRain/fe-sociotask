@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex, Grid } from "@chakra-ui/react";
 import { MotionHeading } from "../ui/ChakraMotion";
 import TaskCard from "../TaskCard";
 
@@ -13,7 +13,12 @@ export default function OngoingTaskSection() {
             p={"6"}
             overflow={"hidden"}
         >
-            <MotionHeading as={"h5"} size={"lg"} color={"pink.500"} textAlign={"center"}>
+            <MotionHeading
+                as={"h5"}
+                size={"lg"}
+                color={"pink.500"}
+                textAlign={"center"}
+            >
                 ~ Ongoing Tasks ~
             </MotionHeading>
             <MotionHeading
@@ -23,17 +28,32 @@ export default function OngoingTaskSection() {
                 maxW={"864px"}
                 fontWeight={"semibold"}
             >
-                Come on, find interesting tasks and complete them and get rewards.
+                Come on, find interesting tasks and complete them and get
+                rewards.
             </MotionHeading>
 
-            <Grid templateColumns={"repeat(3, 1fr)"} mt={"10"} gap={"2"}>
+            <Grid
+                position={"relative"}
+                templateColumns={"repeat(3, 1fr)"}
+                mt={"10"}
+                gap={"2"}
+            >
                 <TaskCard />
                 <TaskCard />
                 <TaskCard />
                 <TaskCard />
                 <TaskCard />
                 <TaskCard />
+                <Box
+                    position={"absolute"}
+                    bottom={0}
+                    w={"full"}
+                    h={"340px"}
+                    bgGradient={"to-b"}
+                    gradientFrom={"transparent 22%"}
+                    gradientTo={"#fff 85%"}
+                />
             </Grid>
         </Flex>
-    )
+    );
 }

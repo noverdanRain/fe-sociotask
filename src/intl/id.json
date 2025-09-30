@@ -7,7 +7,9 @@
         "metadata": {
             "title": "Socio Task | Dapatkan Reward dari Aktivitas Sosial Anda",
             "description": "Bergabunglah dengan Socio Task untuk memonetisasi keterlibatan media sosial Anda dan dapatkan reward dengan mudah."
-        }
+        },
+        "days-left": "{days} hari tersisa",
+        "hours-left": "{days} jam tersisa"
     },
     "homepage": {
         "hero": {
@@ -26,6 +28,13 @@
                 "join-us": "Bergabung"
             },
             "coins-can-be-rewarded": "koin yang dapat diklaim"
+        },
+        "how-to":{
+            "text": "Gimana Caranya",
+            "title": "Klaim dan dapatkan koin cryptocurrency dengan menyelesaikan tugas dan terkonfirmasi",
+            "step-1": "Ikuti dan selesaikan tugas yang tersedia di",
+            "step-2": "Selesaikan tugas sesuai dengan ketentuan",
+            "step-3": "Klaim koin cryptocurrency yang ditawarkan"
         }
     }
 }

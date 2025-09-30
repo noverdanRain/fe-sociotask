@@ -1,15 +1,25 @@
 "use client";
 
-import { Box, Flex, type FlexProps, Text } from "@chakra-ui/react";
-import { MotionHeading } from "../ui/ChakraMotion";
+import {
+    Box,
+    Flex,
+    Text,
+    useBreakpointValue,
+} from "@chakra-ui/react";
+import {
+    MotionFlex,
+    type MotionFlexProps,
+    MotionHeading,
+} from "../ui/ChakraMotion";
 
 import StartTaskImg from "@/assets/landing/how-to/start-task.png";
 import CompleteTaskImg from "@/assets/landing/how-to/complete-task.png";
 import ClaimRewardImg from "@/assets/landing/how-to/claim-rewards.png";
 import BackLineSvg from "@/assets/landing/how-to/back-line.svg";
 import ImageWrapper from "../ui/image";
+import { useTranslations } from "next-intl";
 
-const staticCardProps: FlexProps = {
+const staticCardProps: MotionFlexProps = {
     overflow: "hidden",
     position: "relative",
     w: "316px",
@@ -28,6 +38,16 @@ const staticCardProps: FlexProps = {
 };
 
 export default function HowToSection() {
+    const intl = useTranslations("homepage.how-to");
+
+    const firstStepCardRotate = useBreakpointValue({
+        base: -4,
+        md: -4,
+        lg: -6,
+    });
+    const thirdStepCardRotate = useBreakpointValue({ base: -4, md: 0, lg: 6 });
+    const stepCardMargin = useBreakpointValue({ base: "0", lg: "20px" });
+
     return (
         <Flex
             position={"relative"}
@@ -41,7 +61,7 @@ export default function HowToSection() {
             backgroundPositionX={"center"}
             backgroundPositionY={"350px"}
             bgSize={"1780px"}
-            overflow={{ base: "hidden", md: "visible" }}
+            overflow={{ base: "hidden", sm: "visible" }}
             h={"fit"}
         // bg={"pink.100"}
         >
@@ -63,8 +83,12 @@ export default function HowToSection() {
                 size={"lg"}
                 color={"pink.500"}
                 textAlign={"center"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
             >
-                ~ How To ~
+                {"~ "}{intl("text")}{" ~"}
             </MotionHeading>
             <MotionHeading
                 as={"h3"}
@@ -72,9 +96,12 @@ export default function HowToSection() {
                 textAlign={"center"}
                 maxW={"864px"}
                 fontWeight={"semibold"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
             >
-                Claim and earn cryptocurrency coins by completing tasks and
-                getting confirmed
+                {intl("title")}
             </MotionHeading>
             <Flex
                 flexWrap={{ base: "wrap", lg: "nowrap" }}
@@ -83,10 +110,17 @@ export default function HowToSection() {
                 alignItems={"start"}
                 mt={"12"}
             >
-                <Flex
-                    rotate={{ base: "-4", md: "-4", lg: "-6" }}
-                    mt={{ base: "0", lg: "5" }}
+                <MotionFlex
                     {...staticCardProps}
+                    initial={{ x: 300, rotate: 0, marginTop: 0, opacity: 0 }}
+                    whileInView={{
+                        x: 0,
+                        rotate: firstStepCardRotate,
+                        marginTop: stepCardMargin,
+                        opacity: 1
+                    }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
                 >
                     <ImageWrapper
                         rotate={"6"}
@@ -103,12 +137,17 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 1</Text>
-                        <Text mt={"1"} color={"gray.700"}>
-                            Follow and complete the available tasks available in
-                        </Text>
+                        <Text mt={"1"} color={"gray.700"}>{intl("step-1")}</Text>
                     </Box>
-                </Flex>
-                <Flex rotate={{ base: "4", md: "4", lg: "0" }} {...staticCardProps}>
+                </MotionFlex>
+                <MotionFlex
+                    rotate={{ base: "4", md: "4", lg: "0" }}
+                    {...staticCardProps}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
+                    viewport={{ once: true }}
+                >
                     <ImageWrapper
                         position={"absolute"}
                         top={"20px"}
@@ -123,15 +162,20 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 2</Text>
-                        <Text mt={"1"} color={"gray.700"}>
-                            Complete the tasks according to the provisions
-                        </Text>
+                        <Text mt={"1"} color={"gray.700"}>{intl("step-2")}</Text>
                     </Box>
-                </Flex>
-                <Flex
-                    rotate={{ base: "-4", md: "0", lg: "6" }}
-                    mt={{ base: "0", lg: "5" }}
+                </MotionFlex>
+                <MotionFlex
                     {...staticCardProps}
+                    initial={{ x: -300, rotate: 0, marginTop: 0, opacity: 0 }}
+                    whileInView={{
+                        x: 0,
+                        rotate: thirdStepCardRotate,
+                        marginTop: stepCardMargin,
+                        opacity: 1,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
                 >
                     <ImageWrapper
                         rotate={"-5"}
@@ -148,11 +192,9 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 3</Text>
-                        <Text mt={"1"} color={"gray.700"}>
-                            Claim the cryptocurrency coins offered
-                        </Text>
+                        <Text mt={"1"} color={"gray.700"}>{intl("step-3")}</Text>
                     </Box>
-                </Flex>
+                </MotionFlex>
             </Flex>
         </Flex>
     );
