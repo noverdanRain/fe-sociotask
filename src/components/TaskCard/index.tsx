@@ -54,7 +54,13 @@ export default function TaskCard() {
                     The Socio Product Launch Campaign
                 </Text>
 
-                <Flex gap={"2"} flexWrap={"wrap"} fontSize={"xs"} mt={"auto"}>
+                <Flex
+                    gap={"2"}
+                    flexWrap={"wrap"}
+                    fontSize={"xs"}
+                    mt={"auto"}
+                    maxLines={2}
+                >
                     <Flex
                         py={"1"}
                         px={"3.5"}
@@ -81,6 +87,15 @@ export default function TaskCard() {
                         rounded={"full"}
                     >
                         <Text>Comment</Text>
+                    </Flex>
+                    <Flex
+                        py={"1"}
+                        px={"3.5"}
+                        border={"1px solid"}
+                        borderColor={"black/25"}
+                        rounded={"full"}
+                    >
+                        <Text>Repost</Text>
                     </Flex>
                     <Flex
                         py={"1"}

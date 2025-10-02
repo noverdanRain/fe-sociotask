@@ -35,6 +35,10 @@
             "step-1": "Follow and complete the available tasks available in",
             "step-2": "Complete the tasks according to the provisions",
             "step-3": "Claim the cryptocurrency coins offered"
+        },
+        "ongoing-tasks": {
+            "text": "Ongoing Tasks",
+            "title": "Come on, find interesting tasks and complete them and get rewards."
         }
     }
 }

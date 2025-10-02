@@ -1,15 +1,16 @@
 "use client"
 
 import { motion } from "motion/react";
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text, Grid } from "@chakra-ui/react";
 import ImageWrapper from "@/components/ui/image";
 
-const MFlex = motion(Flex);
-const MBox = motion(Box);
-const MButton = motion(Button);
-const MImage = motion(ImageWrapper);
-const MHeading = motion(Heading);
-const MText = motion(Text);
+const MGrid = motion.create(Grid)
+const MFlex = motion.create(Flex);
+const MBox = motion.create(Box);
+const MButton = motion.create(Button);
+const MImage = motion.create(ImageWrapper);
+const MHeading = motion.create(Heading);
+const MText = motion.create(Text);
 
 export type MotionFlexProps = {
     children?: React.ReactNode;
@@ -22,13 +23,30 @@ export type MotionBoxProps = {
 export type MotionButtonProps = {
     children?: React.ReactNode;
 } & React.ComponentProps<typeof MButton>
+
 export type MotionImageProps =  React.ComponentProps<typeof MImage>
+
 export type MotionHeadingProps = {
     children?: React.ReactNode;
 } & React.ComponentProps<typeof MHeading>
+
 export type MotionTextProps = {
     children?: React.ReactNode;
 } & React.ComponentProps<typeof MText>
+
+export type MotionGridProps = {
+    children?: React.ReactNode;
+} & React.ComponentProps<typeof MGrid>
+
+export function MotionGrid(props: MotionGridProps) {
+    return (
+        <MGrid
+            {...props}
+        >
+            {props.children}
+        </MGrid>
+    )
+}
 
 export function MotionBox(props: MotionBoxProps) {
     return (

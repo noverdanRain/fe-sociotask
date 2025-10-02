@@ -1,10 +1,13 @@
-"use client";
 
-import { Box, Flex, Grid } from "@chakra-ui/react";
-import { MotionHeading } from "../ui/ChakraMotion";
+import { Box, Button, Flex } from "@chakra-ui/react";
+import { MotionGrid, MotionHeading } from "../ui/ChakraMotion";
 import TaskCard from "../TaskCard";
+import { getTranslations } from "next-intl/server";
+import { LuArrowUpRight } from "react-icons/lu";
 
-export default function OngoingTaskSection() {
+export default async function OngoingTaskSection() {
+    const intl = await getTranslations("homepage.ongoing-tasks");
+
     return (
         <Flex
             flexDir={"column"}
@@ -18,8 +21,12 @@ export default function OngoingTaskSection() {
                 size={"lg"}
                 color={"pink.500"}
                 textAlign={"center"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
             >
-                ~ Ongoing Tasks ~
+                ~ {intl("text")} ~
             </MotionHeading>
             <MotionHeading
                 as={"h3"}
@@ -27,16 +34,27 @@ export default function OngoingTaskSection() {
                 textAlign={"center"}
                 maxW={"864px"}
                 fontWeight={"semibold"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
             >
-                Come on, find interesting tasks and complete them and get
-                rewards.
+                {intl("title")}
             </MotionHeading>
 
-            <Grid
+            <MotionGrid
                 position={"relative"}
-                templateColumns={"repeat(3, 1fr)"}
+                templateColumns={{
+                    base: "repeat(1, 1fr)",
+                    md: "repeat(2, 1fr)",
+                    lg: "repeat(3, 1fr)",
+                }}
                 mt={"10"}
                 gap={"2"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
             >
                 <TaskCard />
                 <TaskCard />
@@ -53,7 +71,11 @@ export default function OngoingTaskSection() {
                     gradientFrom={"transparent 22%"}
                     gradientTo={"#fff 85%"}
                 />
-            </Grid>
+            </MotionGrid>
+
+            <Button size={"xl"} mt={"-4"}>
+                Browse Other Tasks <LuArrowUpRight />
+            </Button>
         </Flex>
     );
 }

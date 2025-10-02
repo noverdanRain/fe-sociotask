@@ -1,11 +1,6 @@
 "use client";
 
-import {
-    Box,
-    Flex,
-    Text,
-    useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import {
     MotionFlex,
     type MotionFlexProps,
@@ -40,12 +35,14 @@ const staticCardProps: MotionFlexProps = {
 export default function HowToSection() {
     const intl = useTranslations("homepage.how-to");
 
-    const firstStepCardRotate = useBreakpointValue({
-        base: -4,
-        md: -4,
-        lg: -6,
-    });
+    const firstStepCardRotate = useBreakpointValue({ base: -4, md: -4, lg: -6 });
+    const secondStepCardRotate = useBreakpointValue({ base: 4, md: 4, lg: 0 });
     const thirdStepCardRotate = useBreakpointValue({ base: -4, md: 0, lg: 6 });
+
+    const firstCardXOffset = useBreakpointValue({ base: -300, md: -300, lg: 300 });
+    const secondCardXOffset = useBreakpointValue({ base: 300, md: 300, lg: 0 });
+    const thirdCardXOffset = useBreakpointValue({ base: -300, md: -300, lg: -300 });
+
     const stepCardMargin = useBreakpointValue({ base: "0", lg: "20px" });
 
     return (
@@ -88,7 +85,9 @@ export default function HowToSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.4 }}
             >
-                {"~ "}{intl("text")}{" ~"}
+                {"~ "}
+                {intl("text")}
+                {" ~"}
             </MotionHeading>
             <MotionHeading
                 as={"h3"}
@@ -110,14 +109,15 @@ export default function HowToSection() {
                 alignItems={"start"}
                 mt={"12"}
             >
+                {/* start STEP 1 */}
                 <MotionFlex
                     {...staticCardProps}
-                    initial={{ x: 300, rotate: 0, marginTop: 0, opacity: 0 }}
+                    initial={{ x: firstCardXOffset, rotate: 0, marginTop: 0, opacity: 0 }}
                     whileInView={{
                         x: 0,
                         rotate: firstStepCardRotate,
                         marginTop: stepCardMargin,
-                        opacity: 1
+                        opacity: 1,
                     }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
@@ -137,14 +137,18 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 1</Text>
-                        <Text mt={"1"} color={"gray.700"}>{intl("step-1")}</Text>
+                        <Text mt={"1"} color={"gray.700"}>
+                            {intl("step-1")}
+                        </Text>
                     </Box>
                 </MotionFlex>
+                {/* end STEP 1 */}
+
+                {/* start STEP 2 */}
                 <MotionFlex
-                    rotate={{ base: "4", md: "4", lg: "0" }}
                     {...staticCardProps}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    initial={{ opacity: 0, rotate: 0, x: secondCardXOffset }}
+                    whileInView={{ opacity: 1, x: 0, rotate: secondStepCardRotate }}
                     transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
                     viewport={{ once: true }}
                 >
@@ -162,12 +166,17 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 2</Text>
-                        <Text mt={"1"} color={"gray.700"}>{intl("step-2")}</Text>
+                        <Text mt={"1"} color={"gray.700"}>
+                            {intl("step-2")}
+                        </Text>
                     </Box>
                 </MotionFlex>
+                {/* end STEP 2 */}
+
+                {/* start STEP 3 */}
                 <MotionFlex
                     {...staticCardProps}
-                    initial={{ x: -300, rotate: 0, marginTop: 0, opacity: 0 }}
+                    initial={{ x: thirdCardXOffset, rotate: 0, marginTop: 0, opacity: 0 }}
                     whileInView={{
                         x: 0,
                         rotate: thirdStepCardRotate,
@@ -192,9 +201,12 @@ export default function HowToSection() {
                     />
                     <Box>
                         <Text fontWeight={"semibold"}>STEP 3</Text>
-                        <Text mt={"1"} color={"gray.700"}>{intl("step-3")}</Text>
+                        <Text mt={"1"} color={"gray.700"}>
+                            {intl("step-3")}
+                        </Text>
                     </Box>
                 </MotionFlex>
+                {/* end STEP 3 */}
             </Flex>
         </Flex>
     );

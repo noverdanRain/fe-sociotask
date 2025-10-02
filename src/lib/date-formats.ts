@@ -29,6 +29,8 @@ export function useRemainingDays(endDate: Date | string) {
 
     if (daysLeft == 0) {
         return intl("hours-left", { days: duration.hours() });
+    } else if (daysLeft < 0) {
+        return "Ended"
     } else {
         return intl("days-left", { days: daysLeft });
     }

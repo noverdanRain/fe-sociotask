@@ -49,7 +49,7 @@ export default async function Hero() {
                     // sm: "center",
                 }}
                 maxW={"1280px"}
-                minH={{base:"100dvh", md:"fit", lg:"100dvh", "2xl":"fit"}}
+                minH={{base:"100vh", md:"fit", lg:"100dvh", "2xl":"fit"}}
                 w={"100%"}
                 // h={{
                 //     base: "100dvh",
