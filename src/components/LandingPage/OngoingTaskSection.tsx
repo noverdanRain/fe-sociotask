@@ -3,13 +3,13 @@ import { Box, Button, Flex } from "@chakra-ui/react";
 import { MotionGrid, MotionHeading } from "../ui/ChakraMotion";
 import TaskCard from "../TaskCard";
 import { getTranslations } from "next-intl/server";
-import { LuArrowUpRight } from "react-icons/lu";
 
 export default async function OngoingTaskSection() {
     const intl = await getTranslations("homepage.ongoing-tasks");
 
     return (
         <Flex
+            as={"section"}
             flexDir={"column"}
             alignItems={"center"}
             mt={"10"}
@@ -73,8 +73,8 @@ export default async function OngoingTaskSection() {
                 />
             </MotionGrid>
 
-            <Button size={"xl"} mt={"-4"}>
-                Browse Other Tasks <LuArrowUpRight />
+            <Button variant={"outline"} size={"xl"} mt={"-8"}>
+                {intl("more-tasks")} ...
             </Button>
         </Flex>
     );

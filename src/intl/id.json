@@ -29,7 +29,7 @@
             },
             "coins-can-be-rewarded": "koin yang dapat diklaim"
         },
-        "how-to":{
+        "how-to": {
             "text": "Gimana Caranya",
             "title": "Klaim dan dapatkan koin cryptocurrency dengan menyelesaikan tugas dan terkonfirmasi",
             "step-1": "Ikuti dan selesaikan tugas yang tersedia di",
@@ -38,7 +38,12 @@
         },
         "ongoing-tasks": {
             "text": "Sedang Berlangsung",
-            "title": "Ayo, temukan tugas menarik dan selesaikan untuk mendapatkan hadiah."
+            "title": "Ayo, temukan tugas menarik dan selesaikan untuk mendapatkan hadiah.",
+            "more-tasks": "Tasks Lainnya"
+        },
+        "faq": {
+            "text": "FAQ",
+            "title": "Pertanyaan yang sering diajukan"
         }
     }
 }

@@ -38,7 +38,12 @@
         },
         "ongoing-tasks": {
             "text": "Ongoing Tasks",
-            "title": "Come on, find interesting tasks and complete them and get rewards."
+            "title": "Come on, find interesting tasks and complete them and get rewards.",
+            "more-tasks": "More Tasks"
+        },
+        "faq": {
+            "text": "FAQ",
+            "title": "Frequently asked questions"
         }
     }
 }
