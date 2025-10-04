@@ -1,6 +1,5 @@
-
-import { Box, Button, Flex } from "@chakra-ui/react";
-import { MotionGrid, MotionHeading } from "../ui/ChakraMotion";
+import { Box, Flex } from "@chakra-ui/react";
+import { MotionButton, MotionGrid, MotionHeading } from "../ui/ChakraMotion";
 import TaskCard from "../TaskCard";
 import { getTranslations } from "next-intl/server";
 
@@ -73,9 +72,17 @@ export default async function OngoingTaskSection() {
                 />
             </MotionGrid>
 
-            <Button variant={"outline"} size={"xl"} mt={"-8"}>
+            <MotionButton
+                variant={"outline"}
+                size={"xl"}
+                mt={"-8"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+            >
                 {intl("more-tasks")} ...
-            </Button>
+            </MotionButton>
         </Flex>
     );
 }

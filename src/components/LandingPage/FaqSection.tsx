@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { MotionFlex } from "../ui/ChakraMotion";
+import ElipseGradient from "@/assets/landing/elipse-gradient.svg"
+import ImageWrapper from "../ui/image";
 
 type FaqKey = "1" | "2" | "3" | "4";
 type FaqItem = {
@@ -46,6 +48,7 @@ export default function FaqSection() {
     return (
         <MotionFlex
             mt="16"
+            mb={"8"}
             as="section"
             w={"calc(100% - 4rem)"}
             maxW={{ base: "100%", lg: "6xl" }}
@@ -62,8 +65,29 @@ export default function FaqSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.4 }}
+            position={"relative"}
+            overflow={"hidden"}
         >
-            <Box flex={"1"} textAlign={{ base: "center", md: "left" }}>
+            <ImageWrapper
+                src={ElipseGradient.src}
+                alt="Elipse Gradient"
+                position={"absolute"}
+                top={"-25%"}
+                left={"-43%"}
+                width="1000px"
+                height={"500px"}
+            />
+            <ImageWrapper
+                src={ElipseGradient.src}
+                alt="Elipse Gradient"
+                position={"absolute"}
+                top={"-60%"}
+                right={"-40%"}
+                width="1000px"
+                height={"600px"}
+            />
+
+            <Box flex={"1"} textAlign={{ base: "center", md: "left" }} zIndex={1} mb={{ base: "8", md: "0" }} maxW={{ base: "100%", lg: "400px" }}>
                 <Heading as="h6" fontSize={"lg"} fontWeight={"semibold"} color="pink.500">
                     {intl("text")}
                 </Heading>
@@ -72,6 +96,8 @@ export default function FaqSection() {
                 </Heading>
             </Box>
             <Stack
+                as="div"
+                zIndex={1}
                 flex={"1.5"}
             >
                 <For each={faqData}>

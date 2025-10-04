@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import HeaderNav from "@/components/HeaderNav";
+import Footer from "@/components/Footer";
 
 type Props = {
 	children: React.ReactNode;
@@ -49,6 +50,7 @@ export default async function RootLayout({ children, params }: Props) {
 							<main>
 								{children}
 							</main>
+							<Footer />
 						</NextIntlClientProvider>
 					</ReownProvider>
 				</ChakraProviderWrapper>
