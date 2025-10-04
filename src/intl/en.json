@@ -5,7 +5,7 @@
         "sign-in": "Log In",
         "logout": "Logout",
         "metadata": {
-            "title": "Socio Task | Earn Rewards from Your Social Activities",
+            "title": "Socio Task - Earn Rewards from Your Social Activities",
             "description": "Join Socio Task to monetize your social media engagement and earn rewards effortlessly."
         },
         "days-left": "{days, plural, =0 {no days left} =1 {one day left} other {# days left}}",

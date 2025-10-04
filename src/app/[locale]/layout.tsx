@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import ReownProvider from "../provider/reown-provider";
 import { headers } from "next/headers";
 import "../globals.css";
@@ -23,7 +23,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const t = await getTranslations({ locale, namespace: 'common.metadata' });
 	return {
 		title: t("title"),
-		description: t("description")
+		description: t("description"),
+		keywords: "Socio Task, Social Media, Rewards, Monetization, Engagement",
+		openGraph: {
+			title: t("title"),
+			description: t("description"),
+			siteName: "Socio Task",
+			locale: locale,
+			type: "website",
+			url: `https://sociotask.fun/${locale}`,
+			images: [
+				{
+					url: "/og-image.png",
+					width: 900,
+					height: 473,
+					alt: t("title"),
+				}
+			]
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: t("title"),
+			description: t("description"),
+			site: "@sociotask",
+			images: [
+				{
+					url: "/og-image.png",
+					width: 900,
+					height: 473,
+					alt: t("title"),
+				}
+			]
+		}
 	}
 }
 
